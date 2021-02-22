@@ -14,7 +14,7 @@ module RepoMiner
     def walk(branch, since = nil)
       @walker = Rugged::Walker.new(rugged_repository)
       @walker.sorting(Rugged::SORT_TOPO | Rugged::SORT_REVERSE)
-      @walker.hide(rugged_repository.lookup(since)) if since
+      @walker.hide(rugged_repository.lookup(since).oid) if since
       @walker.push(rugged_repository.branches[branch].target_id)
       @walker
     end
