@@ -20,6 +20,13 @@ RSpec.describe RepoMiner do
       initial_commit = analyser.first
       expect(initial_commit.data[:dependencies]).to eq({
         :added_manifests => [
+          {:path=>"Gemfile",
+            :platform=>"rubygems",
+            :kind=>"manifest",
+            :added_dependencies=>[],
+            :modified_dependencies=>[],
+            :removed_dependencies=>[]
+          },
           {
             :path => "repo_miner.gemspec",
             :platform => "rubygems",
