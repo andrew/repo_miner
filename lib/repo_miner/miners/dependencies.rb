@@ -60,8 +60,8 @@ module RepoMiner
           after_modified_manifest = after_manifest.first
 
           if before_modified_manifest && after_modified_manifest
-            before_dependencies = before_modified_manifest[:dependencies]
-            after_dependencies = after_modified_manifest[:dependencies]
+            before_dependencies = before_modified_manifest[:dependencies] || []
+            after_dependencies = after_modified_manifest[:dependencies] || []
 
             added_dependency_names = after_dependencies.map{|d| d[:name] } - before_dependencies.map{|d| d[:name] }
             removed_dependency_names = before_dependencies.map{|d| d[:name] } - after_dependencies.map{|d| d[:name] }
