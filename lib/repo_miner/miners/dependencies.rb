@@ -27,7 +27,7 @@ module RepoMiner
           new_manifest = manifest.first
 
           if new_manifest
-            dependencies = new_manifest[:dependencies]
+            dependencies = new_manifest[:dependencies] || []
             added = dependencies.map{|d| d[:name] }
 
             added.map! do |dep_name|
@@ -126,7 +126,7 @@ module RepoMiner
           removed_manifest = manifest.first
 
           if removed_manifest
-            dependencies = removed_manifest[:dependencies]
+            dependencies = removed_manifest[:dependencies] || []
             removed = dependencies.map{|d| d[:name] }
 
             removed.map! do |dep_name|
